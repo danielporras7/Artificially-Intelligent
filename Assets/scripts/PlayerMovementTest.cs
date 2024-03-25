@@ -10,14 +10,21 @@ public class PlayerMovementTest : MonoBehaviour
     public Animator animator;
     SpriteRenderer sr;
 
+    //Death Variables
+    public int maxHealth = 100;
+    public int health;
+
+    public GameObject deathEffect;
+
     //Movement variables
     private float horizontal;
     private float vertical;
     private float speed = 8;
-    private float jumpingPower = 8;
+    private float jumpingPower = 12;
     private float fallMultiplier = 3;
     Vector2 gravity;
 
+    bool facingRight;
     bool grounded;
     bool aimingUpRight;
     bool aimingDownRight;
@@ -32,10 +39,12 @@ public class PlayerMovementTest : MonoBehaviour
     // Start is called before the first frame update
      void Start()
     {
+        health = maxHealth;
         gravity = new Vector2(0, -Physics2D.gravity.y);
         sr = GetComponent<SpriteRenderer>();
         
         grounded = true;
+        facingRight = true;
         
     } 
 
@@ -75,8 +84,18 @@ public class PlayerMovementTest : MonoBehaviour
         animator.SetBool("AimUp", IsAimingUp());
         animator.SetBool("Down", IsLyingDown());
 
-        //If going the other direction
-        Flip();
+        //Used for switching directions
+        if(horizontal < 0 && facingRight)
+        {
+            Flip();
+        }
+
+        //Used for switching directions
+        if (horizontal > 0 && !facingRight)
+        {
+            Flip();
+        }
+
     }
 
     //Checks of player is on the ground
@@ -98,7 +117,6 @@ public class PlayerMovementTest : MonoBehaviour
             return false;
         }
     }
-
     private bool IsAimingDownRight()
     {
         if (vertical == -1 && horizontal != 0)
@@ -111,7 +129,6 @@ public class PlayerMovementTest : MonoBehaviour
             return false;
         }
     }
-
     private bool IsAimingUp()
     {
         if (vertical == 1 && horizontal == 0)
@@ -124,7 +141,6 @@ public class PlayerMovementTest : MonoBehaviour
             return false;
         }
     }
-
     private bool IsLyingDown()
     {
         if (vertical == -1 && horizontal == 0)
@@ -149,10 +165,33 @@ public class PlayerMovementTest : MonoBehaviour
     //Flips the sprites in case the user turns around
     private void Flip()
     {
+        /* This was used before implementing shooting mechanics
         if(horizontal != 0)
         {
-            sr.flipX = horizontal < 0;
+            //sr.flipX = horizontal < 0;
+
+        } */
+
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
+    }
+
+    //Player Death
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        if (health <= 0)
+        {
+            Die();
         }
+    }
+    public void Die()
+    {
+        Instantiate(deathEffect, transform.position, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 
 }
