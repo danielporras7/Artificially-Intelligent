@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6870793890989752791}
   - component: {fileID: 3457548239905604406}
   - component: {fileID: 4117974989155222117}
+  - component: {fileID: 5018265232198123066}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +72,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7878788, y: 1}
+    oldSize: {x: 0.57575756, y: 1}
     newSize: {x: 0.7878788, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -94,9 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sr: {fileID: 3457548239905604406}
   rb: {fileID: 4117974989155222117}
+  animator: {fileID: 0}
   health: 100
   deathEffect: {fileID: 4794043405585894037, guid: 37138c0c33167b04fa1fb90b7f5a794f, type: 3}
-  player: {fileID: 5086603946298816348, guid: baa39d2baf9e1324ca37bf5608d66ebb, type: 3}
 --- !u!212 &3457548239905604406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -128117841, guid: 98097d364db3a6d4dbbc92cc25f3e03d, type: 3}
+  m_Sprite: {fileID: -2109094026, guid: 8de61a08854da9b45bd87898851bdd71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -176,3 +177,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &5018265232198123066
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897738362287236652}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6e54b0c3f346f54aa1f1925ee11bb8f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
