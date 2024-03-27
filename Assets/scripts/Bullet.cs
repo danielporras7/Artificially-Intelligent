@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
         
     }
 
+    //Used to kill enemies
     void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();

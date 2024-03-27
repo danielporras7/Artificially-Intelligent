@@ -6,15 +6,25 @@ public class Enemy : MonoBehaviour
 {
     public SpriteRenderer sr;
     public Rigidbody2D rb;
+    public Animator animator;
 
-    private float speed = 4;
-
+    private float speed = 6;
 
     public int health = 100;
 
     public GameObject deathEffect;
 
-    public PlayerMovementTest player;
+    //public PlayerMovementTest player;
+
+    //Sounds
+    SoundManager soundManager;
+
+    //Awake() is only used for audio as of now
+    private void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+    }
+
 
     public void TakeDamage(int damage)
     {
@@ -26,18 +36,24 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    //Used to hurt player
-    private void OnCollisionEnter2D(Collision2D collision)
+    //This line of code was originally meant for enemies to hurt a player if it was detected that they touched the player
+    //This caused issues so instead it was changed so that the player script will detect if they touched enemies, and
+    //hurt itself when they touched an enemy
+
+    /*Used to hurt player
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             player.TakeDamage(100);
         }
-    }
+    } */
 
     //When an enemy dies
     public void Die()
     {
+        soundManager.PlaySFX(soundManager.enemyDeathSFX);
+
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
@@ -47,13 +63,28 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         rb.velocity = (transform.right * speed);
+        //animator = GetComponent<Animator>();
         //sr = GetComponent<SpriteRenderer>();
         //rb = GetComponent<Rigidbody2D>();
+    }
+
+    //This is used to let enemies pass through each other
+    public void OnEnable()
+    {
+        //Adds enemies to a list of objects they can ignore collisions
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach (GameObject Enemy in enemies)
+        {
+            Physics2D.IgnoreCollision(Enemy.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        //animator.SetBool("Running", true);
         //rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 }

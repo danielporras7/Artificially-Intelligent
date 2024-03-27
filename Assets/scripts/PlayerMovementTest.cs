@@ -16,7 +16,7 @@ public class PlayerMovementTest : MonoBehaviour
 
     public GameObject deathEffect;
 
-    //Movement variables
+    //Movement variables -Some are used for testing
     private float horizontal;
     private float vertical;
     private float speed = 8;
@@ -35,9 +35,19 @@ public class PlayerMovementTest : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    //Sounds
+    SoundManager soundManager;
+
+    //Awake() is only used for audio as of now
+
+    private void Awake()
+    {
+        soundManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<SoundManager>();
+    }
+
 
     // Start is called before the first frame update
-     void Start()
+    void Start()
     {
         health = maxHealth;
         gravity = new Vector2(0, -Physics2D.gravity.y);
@@ -187,8 +197,20 @@ public class PlayerMovementTest : MonoBehaviour
             Die();
         }
     }
+
+    //Used to hurt player if they hit an enemy
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(100);
+        }
+    } 
+
     public void Die()
     {
+        soundManager.PlayDeath();
+
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
         Destroy(gameObject);

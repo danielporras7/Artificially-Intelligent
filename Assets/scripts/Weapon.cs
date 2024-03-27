@@ -10,6 +10,11 @@ public class Weapon : MonoBehaviour
     public Transform firePointUp;
     public Transform firePointDown;
 
+    public AudioSource audioSrc;
+    public AudioClip shootingSound;
+
+    private float horizontal;
+    private float vertical;
 
     public GameObject bulletPrefab;
 
@@ -22,36 +27,40 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if(Input.GetButtonDown("Fire1"))
+        //Aiming Variables
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+
+
+        if (Input.GetButtonDown("Fire1"))
         {
             //Shooting commands assuming facing right, but will be inverted if player is facing left so it's fine
             //Shooting Straight
-            if(InputManager.VerticalAxis == 0)
+            if(vertical == 0)
             {
                 Shoot(firePoint);
             }
 
             //Shooting Upright
-            else if (InputManager.VerticalAxis == 1 && InputManager.HorizontalAxis != 0)
+            else if (vertical == 1 && horizontal != 0)
             {
                 Shoot(firePointUr);
             }
 
             //Shooting Downright
-            else if (InputManager.VerticalAxis == -1 && InputManager.HorizontalAxis != 0)
+            else if (vertical == -1 && horizontal != 0)
             {
                 Shoot(firePointDr);
             }
 
             //Shooting Up
-            else if (InputManager.VerticalAxis == 1 && InputManager.HorizontalAxis == 0)
+            else if (vertical == 1 && horizontal == 0)
             {
                 Shoot(firePointUp);
             }
 
             //Shooting LyingDown
-            else if (InputManager.VerticalAxis == -1 && InputManager.HorizontalAxis == 0)
+            else if(vertical == -1 && horizontal == 0)
             {
                 Shoot(firePointDown);
             }
@@ -62,6 +71,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot(Transform position)
     {
+        audioSrc.PlayOneShot(shootingSound);
         Instantiate(bulletPrefab, position.position, position.rotation);
         
         //Alternate code that works the same?
