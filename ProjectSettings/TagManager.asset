@@ -7,6 +7,10 @@ TagManager:
   - Bullet
   - Enemy
   - Audio
+  - OneWayPlatform
+  - Platform
+  - Water
+  - Pitfall
   layers:
   - Default
   - TransparentFX
@@ -15,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
-  - 
+  - Enemy
+  - Bullet
   - 
   - 
   - 
