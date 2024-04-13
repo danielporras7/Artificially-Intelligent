@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    private float speed = 6;
+    private float speed = 7;
 
     public int health = 100;
 
@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //rb.velocity = (transform.right * speed);
         //animator.SetBool("Running", true);
         //rb.velocity = new Vector2(speed, rb.velocity.y);
     }

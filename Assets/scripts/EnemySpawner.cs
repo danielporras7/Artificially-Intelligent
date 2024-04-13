@@ -13,85 +13,111 @@ public class EnemySpawner : MonoBehaviour
     public Transform spawner5;
     public Transform spawner6;
 
-    public int spawnNumber = 1;
+    private int spawnNumber = 1;
+    private int secondNumber = 1;
     private int counter = 0;
-    private int threshhold = 154;
 
-    public GameObject enemyPrefab;
+    //Threshhold value holds a specific number. Once the number of enemies spawned exceeds that number,
+    //the amount of enemies spawned will double.
+    //154 was the value used for the prototype, this takes effect once the music gets more intense
+    private int threshhold = 50;
+
+    public GameObject runnerPrefab;
+    public GameObject birdPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 8f, 0.5f);
+        //Comment/uncomment the next line in order to turn off/on the spawner
+        //Change the second value to delay timer
+        //For the prototype the second value is 8f
+        InvokeRepeating("SpawnEnemy", 17f, 1f);
     }
 
     void SpawnEnemy()
     {
-        spawnNumber = Random.Range(1, 7);
+        spawnNumber = Random.Range(0, 7);
+        secondNumber = Random.Range(0, 2);
 
-        if(spawnNumber == 1)
+        //If spawn number is 0, spawn a bird enemy
+        if(spawnNumber == 0)
         {
-            Spawn(spawner1);
-            counter++;
-            if(counter >= threshhold)
+            if(secondNumber == 0)
             {
-                Spawn(spawner6);
+                Spawn(spawner1, birdPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner6, runnerPrefab);
+                }
+            }
+
+            else if (secondNumber == 1)
+            {
+                Spawn(spawner2, birdPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner5, runnerPrefab);
+                }
             }
         }
 
-        else if (spawnNumber == 2)
+        //If spawn number is anything other than 0, spawn a normal enemy
+        else
         {
-            Spawn(spawner2);
-            counter++;
-            if (counter >= threshhold)
+            if (spawnNumber == 3 || spawnNumber == 1)
             {
-                Spawn(spawner5);
+                Spawn(spawner3, runnerPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner4, runnerPrefab);
+                }
+            }
+
+            else if (spawnNumber == 2 || spawnNumber == 4)
+            {
+                Spawn(spawner4, runnerPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner3, runnerPrefab);
+                }
+            }
+
+            else if (spawnNumber == 5)
+            {
+                Spawn(spawner5, runnerPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner2, birdPrefab);
+                }
+            }
+
+            else if (spawnNumber == 6)
+            {
+                Spawn(spawner6, runnerPrefab);
+                counter++;
+
+                if (counter >= threshhold)
+                {
+                    Spawn(spawner1, birdPrefab);
+                }
             }
         }
 
-        else if (spawnNumber == 3)
-        {
-            Spawn(spawner3);
-            counter++;
-            if (counter >= threshhold)
-            {
-                Spawn(spawner4);
-            }
-        }
 
-        else if (spawnNumber == 4)
-        {
-            Spawn(spawner4);
-            counter++;
-            if (counter >= threshhold)
-            {
-                Spawn(spawner3);
-            }
-        }
-
-        else if (spawnNumber == 5)
-        {
-            Spawn(spawner5);
-            counter++;
-            if (counter >= threshhold)
-            {
-                Spawn(spawner2);
-            }
-        }
-
-        else if (spawnNumber == 6)
-        {
-            Spawn(spawner6);
-            counter++;
-            if (counter >= threshhold)
-            {
-                Spawn(spawner1);
-            }
-        }
 
     }
 
-    void Spawn(Transform spawner)
+    void Spawn(Transform spawner, GameObject enemyPrefab)
     {
         Instantiate(enemyPrefab, spawner.position, spawner.rotation);
 

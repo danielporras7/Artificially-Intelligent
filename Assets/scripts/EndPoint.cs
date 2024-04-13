@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class EndPoint : MonoBehaviour
 {
-    public void MainGame()
-    {
-        SceneManager.LoadScene(2);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -21,4 +15,13 @@ public class MainMenu : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player"))
+        {
+            SceneController.instance.NextLevel();
+        }
+    }
+
 }

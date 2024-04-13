@@ -16,10 +16,13 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Comment the following code to turn off the background music
+
         musicSource.clip = theme;
         musicSource.Play();
     }
 
+    //Comment the bodies of any of the methods to turn off a specific sound
     public void PlaySFX(AudioClip clip)
     {
         sfxSource.PlayOneShot(clip);

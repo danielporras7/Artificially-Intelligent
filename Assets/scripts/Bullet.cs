@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
         
     }
 
-    //Used to kill enemies
+    //Used to kill enemies and destroy bullet once it collides with something
     void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
@@ -30,6 +30,19 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //destroys the bullet after a few seconds
         Destroy(gameObject, 10);
+    }
+
+    //This is used to let bullets pass through platform
+    public void OnEnable()
+    {
+        //Adds enemies to a list of objects they can ignore collisions
+        GameObject[] owps = GameObject.FindGameObjectsWithTag("OneWayPlatform");
+
+        foreach (GameObject OWP in owps)
+        {
+            Physics2D.IgnoreCollision(OWP.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
     }
 }

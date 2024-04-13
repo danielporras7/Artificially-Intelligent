@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+//using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerMovementTest : MonoBehaviour
 {
@@ -10,11 +12,21 @@ public class PlayerMovementTest : MonoBehaviour
     public Animator animator;
     SpriteRenderer sr;
 
-    //Death Variables
-    public int maxHealth = 100;
+    Color c;
+
+    //Health and Death Variables
+    public int maxHealth = 300;
     public int health;
+    public int numOfHearts;
+
+    [SerializeField] Image[] hearts;
+    public Sprite fullHeart;
+    public Sprite emptyHeart;
 
     public GameObject deathEffect;
+
+    GameObject[] enemies;
+    GameObject[] bullets;
 
     //Movement variables -Some are used for testing
     private float horizontal;
@@ -32,6 +44,9 @@ public class PlayerMovementTest : MonoBehaviour
     bool lyingDown;
 
     [SerializeField] private Rigidbody2D rb;
+    //[SerializeField] private BoxCollider2D current;
+    [SerializeField] private BoxCollider2D standing;
+    [SerializeField] private BoxCollider2D crouchingDown;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
@@ -52,6 +67,11 @@ public class PlayerMovementTest : MonoBehaviour
         health = maxHealth;
         gravity = new Vector2(0, -Physics2D.gravity.y);
         sr = GetComponent<SpriteRenderer>();
+
+        c = sr.material.color;
+
+        standing.enabled = true;
+        crouchingDown.enabled = false;
         
         grounded = true;
         facingRight = true;
@@ -94,6 +114,19 @@ public class PlayerMovementTest : MonoBehaviour
         animator.SetBool("AimUp", IsAimingUp());
         animator.SetBool("Down", IsLyingDown());
 
+        if(IsLyingDown())
+        {
+            crouchingDown.enabled = true;
+            standing.enabled = false;
+        }
+
+        else
+        {
+            crouchingDown.enabled = false;
+            standing.enabled = true;
+        }
+
+
         //Used for switching directions
         if(horizontal < 0 && facingRight)
         {
@@ -104,6 +137,37 @@ public class PlayerMovementTest : MonoBehaviour
         if (horizontal > 0 && !facingRight)
         {
             Flip();
+        }
+
+        //Health
+        if((health / 100) > numOfHearts)
+        {
+            health = numOfHearts * 100;
+        }
+
+
+        for (int i = 0; i < hearts.Length; i++)
+        {
+
+            if (i * 100 < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+
+            if(i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+
+            else
+            {
+                hearts[i].enabled = false; 
+            }
         }
 
     }
@@ -192,9 +256,16 @@ public class PlayerMovementTest : MonoBehaviour
     {
         health -= damage;
 
+        //IF health falls to 0, player dies
         if (health <= 0)
         {
             Die();
+        }
+
+        //If player doesn't die, give the player temporary invicibility
+        else
+        {
+            StartCoroutine(IFrames());
         }
     }
 
@@ -205,15 +276,56 @@ public class PlayerMovementTest : MonoBehaviour
         {
             TakeDamage(100);
         }
+
+        if (collision.gameObject.tag == "Pitfall")
+        {
+            TakeDamage(300);
+        }
     } 
 
+    //Kills the player
     public void Die()
     {
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            hearts[i].sprite = emptyHeart;
+        }
+
         soundManager.PlayDeath();
 
         Instantiate(deathEffect, transform.position, Quaternion.identity);
 
+        SceneController.instance.GameOverStart();
+
         Destroy(gameObject);
+
+        //Wait a few second after dying
+        //StartCoroutine(GameOverScreen());
+
+
     }
 
+    //This gives the player temporary invicibility after taking enemy damage
+    IEnumerator IFrames()
+    {
+        Physics2D.IgnoreLayerCollision(0, 7, true);
+
+        c.a = 0.5f;
+        sr.material.color = c;
+        yield return new WaitForSeconds(2f);
+
+        Physics2D.IgnoreLayerCollision(0, 7, false);
+
+        c.a = 1f;
+        sr.material.color = c;
+    }
+
+    //Waits for a few seconds
+    IEnumerator GameOverScreen()
+    {
+        yield return new WaitForSeconds(3f);
+
+        //Play game over screen
+        SceneController.instance.GameOverStart();
+    }
 }
