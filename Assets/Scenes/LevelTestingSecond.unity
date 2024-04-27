@@ -2168,6 +2168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4133985983350363159}
+  endLevelPoint: {fileID: 6518847010162676299}
 --- !u!1 &1869515343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3258,6 +3259,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 777b3f7ba3c4ac14dad98e0c6633b201, type: 3}
+--- !u!4 &6518847010162676299 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4553003139762589398, guid: 777b3f7ba3c4ac14dad98e0c6633b201, type: 3}
+  m_PrefabInstance: {fileID: 6518847010162676298}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8212152681043436334 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5015444268808377409, guid: baa39d2baf9e1324ca37bf5608d66ebb, type: 3}
