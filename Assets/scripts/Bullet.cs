@@ -18,10 +18,16 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         Enemy enemy = collision.GetComponent<Enemy>();
+        Boss boss = collision.GetComponent<Boss>();
 
-        if(enemy != null)
+        if (enemy != null)
         {
             enemy.TakeDamage(100);
+        }
+        
+        else if(boss != null)
+        {
+            boss.TakeDamage(100);
         }
 
         Destroy(gameObject);

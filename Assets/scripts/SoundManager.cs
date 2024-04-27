@@ -11,13 +11,14 @@ public class SoundManager : MonoBehaviour
     public AudioClip theme;
     public AudioClip deathSFX;
     public AudioClip enemyDeathSFX;
+    public AudioClip bossTheme;
+    public AudioClip winTheme;
 
 
     // Start is called before the first frame update
     void Start()
     {
         //Comment the following code to turn off the background music
-
         musicSource.clip = theme;
         musicSource.Play();
     }
@@ -33,9 +34,23 @@ public class SoundManager : MonoBehaviour
         playerDeath.PlayOneShot(deathSFX);
     }
 
+    public void StartBossTheme()
+    {
+        musicSource.Stop();
+        musicSource.clip = bossTheme;
+        musicSource.Play();
+    }
+
+    public void EndBossTheme()
+    {
+        musicSource.Stop();
+        musicSource.clip = winTheme;
+        musicSource.Play();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
