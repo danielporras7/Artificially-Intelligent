@@ -17,6 +17,8 @@ public class Weapon : MonoBehaviour
     private float vertical;
 
     public GameObject bulletPrefab;
+    public float fireRate; 
+    private float nextFireTime = 0f; 
 
     // Start is called before the first frame update
     void Start()
@@ -27,13 +29,15 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        fireRate = 0.2f; //Rate of Fire. Set to 0 to disable
         //Aiming Variables
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFireTime)
         {
+            nextFireTime = Time.time + fireRate;
             //Shooting commands assuming facing right, but will be inverted if player is facing left so it's fine
             //Shooting Straight
             if(vertical == 0)
