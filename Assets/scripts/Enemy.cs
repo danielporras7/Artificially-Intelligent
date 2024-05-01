@@ -49,6 +49,14 @@ public class Enemy : MonoBehaviour
         }
     } */
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Pitfall")
+        {
+            TakeDamage(300);
+        }
+    } 
+
     //When an enemy dies
     public void Die()
     {
