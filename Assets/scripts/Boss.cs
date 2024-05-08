@@ -40,7 +40,7 @@ public class Boss : MonoBehaviour
 
     private float speed = 7;
 
-    public int health = 4000;
+    public int health = 3500;
 
     //Boolean used for the boss's initial movement downwards
     private bool once;
@@ -81,7 +81,7 @@ public class Boss : MonoBehaviour
         once = false;
         position = -1;
 
-        health = 4000;
+        health = 3500;
 
         player = GameObject.FindGameObjectWithTag("Player");
         //facingRight = true;
@@ -211,13 +211,13 @@ public class Boss : MonoBehaviour
                 MoveBoss();
             }
 
-            if (enemySpawnTimer > 8)
+            if (enemySpawnTimer > 5)
             {
                 enemySpawnTimer = 0;
                 SpawnEnemy();
             }
 
-            if (laserTimer > 13)
+            if (laserTimer > 9)
             {
                 laserTimer = 0;
                 StartCoroutine(RapidFire());

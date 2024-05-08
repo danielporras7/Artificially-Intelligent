@@ -32,8 +32,8 @@ public class PlayerMovementTest : MonoBehaviour
     private float horizontal;
     private float vertical;
     private float speed = 8;
-    private float jumpingPower = 12;
-    private float fallMultiplier = 3;
+    private float jumpingPower = 18;    //Originally 12 w/ gravity scale of 1
+    private float fallMultiplier = 3;   //Originally 3
     Vector2 gravity;
 
     bool facingRight;

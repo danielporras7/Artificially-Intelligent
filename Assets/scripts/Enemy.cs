@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-    private float speed = 7;
+    private float speed = 8.2f;
 
     public int health = 100;
 
