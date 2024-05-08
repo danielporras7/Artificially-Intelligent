@@ -10,6 +10,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("TutorialLevel");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
