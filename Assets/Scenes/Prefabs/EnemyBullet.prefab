@@ -163,5 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   rb: {fileID: 3903677840067383678}
+  bossHit: {fileID: 0}
   player1: {fileID: 0}
   speed2: 10
