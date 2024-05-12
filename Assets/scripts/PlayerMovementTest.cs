@@ -279,6 +279,7 @@ public class PlayerMovementTest : MonoBehaviour
 
         if (collision.gameObject.tag == "Pitfall")
         {
+            Physics2D.IgnoreLayerCollision(0, 7, false);
             TakeDamage(300);
         }
     } 
