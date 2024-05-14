@@ -2344,6 +2344,10 @@ Transform:
   - {fileID: 763793162}
   - {fileID: 650103147}
   - {fileID: 1292382846}
+  - {fileID: 1904254647}
+  - {fileID: 1524311995}
+  - {fileID: 862985978}
+  - {fileID: 567396456}
   - {fileID: 2123938549}
   - {fileID: 830489712}
   - {fileID: 578466996}
@@ -2822,7 +2826,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.54
+  m_Volume: 0.44
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4657,11 +4661,11 @@ Transform:
   m_GameObject: {fileID: 567396454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 543.18, y: 5.53, z: 10}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 37.022003, y: 0.07733336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.06666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162545749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578466994
 GameObject:
@@ -7188,11 +7192,11 @@ Transform:
   m_GameObject: {fileID: 862985976}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 564.52, y: 5.53, z: 10}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 38.44467, y: 0.07733336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.06666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162545749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868730700
 GameObject:
@@ -7742,10 +7746,10 @@ MonoBehaviour:
   musicSource: {fileID: 2112810132}
   sfxSource: {fileID: 640447645}
   playerDeath: {fileID: 2145714740}
-  theme: {fileID: 8300000, guid: 805e7648218a9a34f976b421322186f2, type: 3}
+  theme: {fileID: 8300000, guid: a34bed46dfac0b7498ff04769095a62a, type: 3}
   deathSFX: {fileID: 8300000, guid: 5cb420d11a3bf894cb583881587e43d6, type: 3}
   enemyDeathSFX: {fileID: 8300000, guid: 2848cb81c21f23e40b5479e3723a1b82, type: 3}
-  bossTheme: {fileID: 8300000, guid: fed032bd2ea6114428a4cb5c704db4d2, type: 3}
+  bossTheme: {fileID: 8300000, guid: e3579015d52030049b87abfdcc297b44, type: 3}
   winTheme: {fileID: 8300000, guid: 0a182e53d9e58fc4399bdc32648eb1ed, type: 3}
 --- !u!1 &922532590
 GameObject:
@@ -15170,11 +15174,11 @@ Transform:
   m_GameObject: {fileID: 1524311993}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 521.83997, y: 5.53, z: 10}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 35.599335, y: 0.07733336, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.06666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162545749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1529263939
 GameObject:
@@ -21573,11 +21577,11 @@ Transform:
   m_GameObject: {fileID: 1904254645}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 500.5, y: 5.53, z: 2}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 34.17667, y: 0.07733336, z: -0.53333336}
+  m_LocalScale: {x: 1, y: 1, z: 0.06666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 162545749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1944665253
 GameObject:
@@ -22714,7 +22718,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.60310364
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -23711,11 +23715,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 951346932196893560, guid: baa39d2baf9e1324ca37bf5608d66ebb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.48
+      value: -16.99
       objectReference: {fileID: 0}
     - target: {fileID: 951346932196893560, guid: baa39d2baf9e1324ca37bf5608d66ebb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.3
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 951346932196893560, guid: baa39d2baf9e1324ca37bf5608d66ebb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -24035,10 +24039,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1783165304}
   - {fileID: 550845714}
-  - {fileID: 1904254647}
-  - {fileID: 1524311995}
-  - {fileID: 862985978}
-  - {fileID: 567396456}
   - {fileID: 418457857}
   - {fileID: 159605113}
   - {fileID: 3777678582269753199}
