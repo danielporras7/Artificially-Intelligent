@@ -2,12 +2,8 @@ Movement and aiming with "wasd",
 
 Jumping with spacebar,
 
-Shoot with 'j',
+Shoot with 'j', drop down certain platforms with 'k'.
 
-Unity Scene for Prototype is named "Prototype.unity",
+Main Menu should be MainMenu.unity
 
-Unity Scene for Prototype menu is "MenuPrototype.unity",
-
-Menu Prototype should transfer user to the actual prototype when clicking start,
-
-The prototype level is just a singular area with a few platforms where enemies will continue spawning until the player dies.
+Main Menu directs to main game (3 levels) or tutorial.
