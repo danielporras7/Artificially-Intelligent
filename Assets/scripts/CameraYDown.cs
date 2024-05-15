@@ -14,6 +14,8 @@ public class CameraYDown : MonoBehaviour
 
     void OnEnable()
     {
+        playerYPosition = player.position.y + 6;
+        transform.position = new Vector3(playerXPosition, playerYPosition, transform.position.z);
         halfCameraWidth = Camera.main.orthographicSize * Screen.width / Screen.height; // Calculate the half-width of the camera
         cameraIsLocked = false;
     }
