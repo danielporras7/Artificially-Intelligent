@@ -13,7 +13,7 @@ External Contributions:
 
 4. Sound Effects taken from various Sound Effects websites.
 
-4. Death Sound is from Mario.
+4. Death Sound and Flag Goal are from Mario.
 
 5. Music is from various games:
 	Tutorial Music : Melty Blood Type Lumina - Moonlight of Reunion
