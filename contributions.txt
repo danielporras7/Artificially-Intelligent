@@ -2,7 +2,7 @@ Raziel Soto-Fonseca: Player Movement, Health, Sprites, and Animations, Enemies a
 Daniel Porras: Level 1 design, player models, version control.
 Anya Debelynska: level 1 design, level artwork, assets. 
 Payton Perchez: Tutorial design, update posts.
-
+Julia Cabrera: Level 2 design, camera scripts.
 
 
 
@@ -13,13 +13,15 @@ External Contributions:
 
 2. Death Effects and several Sprites/Artwork for Levels 1, 2, and 3 are taken from Unity Asset Store.
 
-3. Some background art taken from Google Images.
+3. Lava texture pulled from class notes: https://yawgmoth.github.io/CS4700/slides/lecture8.html#40
 
-4. Sound Effects taken from various Sound Effects websites.
+4. Some background art taken from Google Images.
 
-4. Death Sound and Flag Goal are from Mario.
+5. Sound Effects taken from various Sound Effects websites.
 
-5. Music is from various games:
+6. Death Sound and Flag Goal are from Mario.
+
+7. Music is from various games:
 	Tutorial Music : Melty Blood Type Lumina - Moonlight of Reunion
 	Level 1 Music : Under Night In-Birth II Sys:Celes - Night Walker II
 	Level 2 Music : Tekken 5 - Ground Zero Funk
