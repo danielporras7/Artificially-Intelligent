@@ -1,0 +1,23 @@
+Raziel Soto-Fonseca: Player Movement, Health, Sprites, and Animations, Enemies and Boss fight, Level 3 Design
+
+
+
+
+External Contributions:
+1. Used an existing Contra game github for guide/reference, but we didn't use anything directly from it.
+	There are remnants of the scripts/scenes/sprites from it, but none of them are used in our game.	
+
+2. Death Effects and several Sprites/Artwork for Levels 1, 2, and 3 are taken from Unity Asset Store.
+
+3. Some background art taken from Google Images.
+
+4. Sound Effects taken from various Sound Effects websites.
+
+4. Death Sound is from Mario.
+
+5. Music is from various games:
+	Tutorial Music : Melty Blood Type Lumina - Moonlight of Reunion
+	Level 1 Music : Under Night In-Birth II Sys:Celes - Night Walker II
+	Level 2 Music : Tekken 5 - Ground Zero Funk
+	Level 3 Music : Digital Devil Saga 2 - Enemies Reborn
+	Boss Music: Digital Devil Saga 2 - Epic Battle
