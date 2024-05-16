@@ -1,4 +1,7 @@
 Raziel Soto-Fonseca: Player Movement, Health, Sprites, and Animations, Enemies and Boss fight, Level 3 Design
+Daniel Porras: Level 1 design, player models, version control.
+Anya Debelynska: level 1 design, level artwork, assets. 
+
 
 
 
